@@ -1,30 +1,10 @@
-export interface PokeApiData {
-  abilities: {
-    ability: {
-      name: string;
-      url: string;
-    };
-    is_hidden: boolean;
-    slot: number;
-  }[];
-  sprites: { front_default: string };
-  name: string;
-  results: { url: string }[];
-  types: {
-    slot: number;
-    type: {
-      name: string;
-      url: string;
-    };
-  }[];
-}
-
-export interface PokemonData {
-  name: string;
+export interface Pokemon {
   img: string;
+  name: string;
 }
-
-export interface PokemonDetailData extends PokemonData {
+export interface PokemonDetail {
   abilities: string[];
+  img: string;
+  name: string;
   types: string[];
 }
