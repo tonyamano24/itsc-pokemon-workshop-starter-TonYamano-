@@ -26,7 +26,7 @@ const onNavigateDetail = (name: string) =>
       :key="index"
       :img="pokemon.img"
       :name="pokemon.name"
-      :buttonText="'1234'"
+      :buttonText="''"
       @clickbtn="onNavigateDetail($event)"
     />
   </div>
@@ -34,7 +34,7 @@ const onNavigateDetail = (name: string) =>
 <style scoped>
 .cardContainer {
   display: flex; /* or inline-flex */
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 .pokemonCard {

@@ -26,14 +26,25 @@ const renderButtonText = props.buttonText ? props.buttonText : "View Detail";
 </script>
 <template lang="">
   <div class="card w-96 bg-base-100 shadow-xl">
-    <figure>
+    <!-- <figure class="mt-5">
       <img :src="props.img" />
-    </figure>
+    </figure> -->
+    <div class="avatar justify-center mt-8">
+      <div
+        class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
+      >
+        <img :src="props.img" />
+      </div>
+    </div>
     <div class="card-body">
-      <h2 class="card-title">{{ props.name }}</h2>
-
+      <div class="justify-center">
+        <h2 class="card-title">{{ props.name }}</h2>
+      </div>
       <div class="card-actions justify-end">
-        <button class="btn btn-primary" @click="emits('clickbtn', props.name)">
+        <button
+          class="btn btn-success btn-sm"
+          @click="emits('clickbtn', props.name)"
+        >
           {{ renderButtonText }}
         </button>
       </div>
