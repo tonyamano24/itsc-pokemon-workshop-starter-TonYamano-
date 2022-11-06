@@ -4,11 +4,13 @@ import { onMounted, ref } from "vue";
 import type { PokemonDetail } from "@/models/pokemon.model";
 import { getPokemonsNames } from "@/services/pokemon.services";
 import { useRouter } from "vue-router";
+import PokemonCardDetail from "@/components/PokemonCardDetail.vue";
 
 const router = useRouter();
 
 const route = useRoute();
-const pekemonName = route.params.name;
+
+const pekemonName = route.params.name.toString(); // เซ็ตให้เป็น string
 
 const pokemonDetail = ref<PokemonDetail>(); //ประกาศ type พร้อมนำ Interface ที่เป็น type มาใช้
 
@@ -29,27 +31,10 @@ const goBack = () => router.push({ name: "home" });
       <figure>
         <img :src="pokemonDetail?.img" class="mask mask-circle" />
       </figure>
-      <div class="mb-3 mx-5 items-start text-start">
-        <div class="card card-bordered px-5 py-3">
-          <p>abilities:</p>
-          <li
-            class="ml-4 text-sm font-light"
-            v-for="(abilitie, index) of pokemonDetail?.abilities"
-            :key="index"
-          >
-            {{ abilitie }}
-          </li>
-
-          <p>types:</p>
-          <li
-            class="ml-4 text-sm font-light"
-            v-for="(types, index) of pokemonDetail?.types"
-            :key="index"
-          >
-            {{ types }}
-          </li>
-        </div>
-      </div>
+      <PokemonCardDetail
+        v-if="pokemonDetail"
+        :pokemonDetail="pokemonDetail"
+      ></PokemonCardDetail>
       <div class="card-actions justify-center mb-5">
         <button
           class="btn btn-primary btn-wide btn-sm btn-outline"
@@ -87,6 +72,7 @@ const goBack = () => router.push({ name: "home" });
 .bodycard {
   display: flex;
   align-items: center;
+  gap: 24px;
   justify-content: center;
 }
 </style>

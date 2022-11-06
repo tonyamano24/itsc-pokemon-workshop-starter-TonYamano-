@@ -38,7 +38,7 @@ const renderButtonText = props.buttonText ? props.buttonText : "View Detail";
     </div>
     <div class="card-body">
       <div class="justify-center">
-        <h2 class="card-title">{{ props.name }}</h2>
+        <h2 class="card-title capitalize">{{ props.name }}</h2>
       </div>
       <div class="card-actions justify-end">
         <button
