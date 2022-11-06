@@ -1,11 +1,10 @@
-import type { Pokemon } from "@/models/pokemon.model";
-import type { PokemonDetail } from "@/models/pokemon.model";
+import type { Pokemon, PokemonDetail } from "@/models/pokemon.model";
 import axios from "axios";
 
 export const getPokemons = () =>
-  axios.get<Pokemon[]>("https://pokedex-workshop-api.vercel.app/api/pokemons");
+  axios.get<Pokemon[]>(`${import.meta.env.VITE_BASE_URL}/api/pokemons`);
 
 export const getPokemonsNames = (name: string | string[]) =>
   axios.get<PokemonDetail>(
-    "https://pokedex-workshop-api.vercel.app/api/pokemons/" + name
+    `${import.meta.env.VITE_BASE_URL}/api/pokemons/${name}`
   );
