@@ -67,6 +67,17 @@ const filterPokemon = computed(() => {
       @clickbtn="onNavigateDetail($event)"
     />
   </div>
+  <div class="cardContainer mw-[1024px] mx-auto">
+    <PokemonCard
+      class="pokemonCard"
+      v-for="(pokemon, index) of filterPokemon"
+      :key="index"
+      :img="pokemon.img"
+      :name="pokemon.name"
+      :buttonText="''"
+      @clickbtn="onNavigateDetail($event)"
+    />
+  </div>
 </template>
 <style scoped>
 .cardContainer {
